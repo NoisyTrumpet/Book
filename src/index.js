@@ -1,18 +1,24 @@
 import $ from "jquery";
-import React from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
-
+import { Fragment } from 'react';
+import Icon from './SVG/circle.svg'
 
 import "turn.js";
 
 import "./resize.js"
+import {next, prev} from "./resize.js"
 import "./styles.css";
 
-class Turn extends React.Component {
+class Turn extends Component {
+
+
+
+
   static defaultProps = {
     style: {},
     className: "",
-    options: {}
+    options: {},
   };
   
 
@@ -21,7 +27,24 @@ class Turn extends React.Component {
       $(this.el).turn(Object.assign({}, this.props.options));
     }
     document.addEventListener("keydown", this.handleKeyDown, false);
+
+
   }
+
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      context: props.context,
+      clicked: true
+    };
+
+    // this.onBtnClick = this.onBtnClick.bind(this);
+  }
+
+
+  
 
   componentWillUnmount() {
     if (this.el) {
@@ -32,7 +55,7 @@ class Turn extends React.Component {
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
-  handleKeyDown = event => {
+ handleKeyDown = event => {
     if (event.keyCode === 37) {
       $(this.el).turn("previous");
     }
@@ -41,7 +64,11 @@ class Turn extends React.Component {
     }
   };
 
+
+
+
   render() {
+
     return (
       <div
         className={this.props.className}
@@ -54,6 +81,7 @@ class Turn extends React.Component {
   }
 }
 
+
 const options = {
   width: 1524,
   height: 431,
@@ -61,7 +89,8 @@ const options = {
   display: "double",
   acceleration: true,
   elevation: 50,
-  gradients: !$.isTouch,
+  gradients: true,
+  next: true,
   when: {
     turned: function(e, page) {
       console.log("Current view: ", $(this).turn("view"));
@@ -78,15 +107,27 @@ for(var i = 1; i < 240; i++){
   pages.push( url + i + ".jpg");
 }
 
+
+
 const App = () => {
+  
   return (
-    <Turn options={options} className="magazine">
-      {pages.map((page, index) => (
-        <div key={index} className="page">
-          <img src={page} alt={"Book of Free See Inside Page:"+ index} />
-        </div>
-      ))}
-    </Turn>
+
+    
+
+      <div>
+      <Turn options={options} className="magazine">
+        {pages.map((page, index) => (
+          <div key={index} className="page">
+            <img src={page} alt={"Book of Free See Inside Page:" + index} />
+          </div>
+        ))}
+      </Turn>,
+      <div>
+      <img className="prev navigation"src={Icon} onClick={prev} alt="Previous Page"/>
+          <img className="next navigation" src={Icon} onClick={next} alt="Next Page"/>
+      </div>
+      </div>
   );
 };
 

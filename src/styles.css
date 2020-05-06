@@ -48,3 +48,29 @@ body.hide-overflow {
 .rel {
     position: relative;
 }
+
+img.navigation {
+  font-family: 'Montserrat';
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  background: "./SVG/circle.svg";
+  width: 50px;
+  background: #fff;
+
+}
+
+img.navigation:hover {
+  cursor: pointer;
+}
+
+img.next {
+  right: 2%;
+
+}
+
+img.prev {
+  left: 2%;
+  transform: rotate(180deg);
+}
+

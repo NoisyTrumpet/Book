@@ -1,26 +1,36 @@
-import React from 'react'
 import $ from "jquery";
 
 window.addEventListener('load', resize);
 window.addEventListener('resize', resize);
 
 
-document.body.addEventListener('touchmove', function (e) {
+document.body.addEventListener('touchmove', function(e) {
     e.preventDefault();
     // e.stopPropagation();
 });
 
+export function prev() {
+    $('.prev').click(function() {
+        $('.magazine').turn('previous')
+    })
+}
+
+export function next() {
+    $('.next').click(function() {
+        $('.magazine').turn('next')
+    })
+}
 
 
 var ratio = 3.53;
 var singleRatio = 1.77;
 
-window.addEventListener('load', function (e) {
+window.addEventListener('load', function(e) {
     var size = resize();
     $('.magazine').turn('size', size.width, size.height);
 });
 
-window.addEventListener('resize', function (e) {
+window.addEventListener('resize', function(e) {
     var size = resize();
     $('.magazine').turn('size', size.width, size.height);
 });
@@ -38,14 +48,12 @@ function resize() {
 
 
     if (width <= 762) {
-        
+
         $('.magazine').turn('display', 'single');
         height = singleHeight;
         $('.page img').css('height', 'auto');
     }
-    else {
-        $('.magazine').turn('display', 'double');
-    }
+
 
     console.log(singleHeight)
 
@@ -56,7 +64,6 @@ function resize() {
         $('magazine').css('margin-top', '22.25% auto');
     }
 
-    
 
 
     $('.page').width = width + 'px';

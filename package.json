@@ -9,11 +9,14 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-flip-page": "^1.6.0",
+    "react-keydown": "^1.9.12",
     "react-responsive": "^8.0.3",
     "react-scripts": "2.0.3",
     "turn.js": "https://github.com/rizalibnu/turn.js.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "file-loader": "^6.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
