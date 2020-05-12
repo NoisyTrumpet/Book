@@ -9,17 +9,6 @@ document.body.addEventListener('touchmove', function(e) {
     // e.stopPropagation();
 });
 
-export function prev() {
-    $('.prev').click(function() {
-        $('.magazine').turn('previous')
-    })
-}
-
-export function next() {
-    $('.next').click(function() {
-        $('.magazine').turn('next')
-    })
-}
 
 
 var ratio = 3.53;

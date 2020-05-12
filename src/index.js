@@ -1,20 +1,13 @@
 import $ from "jquery";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import { Fragment } from 'react';
-import Icon from './SVG/circle.svg'
-
+import Buttons from "./Buttons"
 import "turn.js";
-
 import "./resize.js"
-import {next, prev} from "./resize.js"
 import "./styles.css";
 
 class Turn extends Component {
-
-
-
-
+  
   static defaultProps = {
     style: {},
     className: "",
@@ -34,7 +27,7 @@ class Turn extends Component {
 
   constructor(props) {
     super(props);
-
+    
     this.state = {
       context: props.context,
       clicked: true
@@ -64,19 +57,22 @@ class Turn extends Component {
     }
   };
 
-
-
-
   render() {
-
+    
     return (
-      <div
-        className={this.props.className}
-        style={Object.assign({}, this.props.style)}
-        ref={el => (this.el = el)}
-      >
-        {this.props.children}
-      </div>
+
+
+        
+        <div
+          className={this.props.className}
+          style={Object.assign({}, this.props.style)}
+          ref={el => (this.el = el)}
+        >
+          {this.props.children}
+        </div>
+        
+
+      
     );
   }
 }
@@ -90,11 +86,16 @@ const options = {
   acceleration: true,
   elevation: 50,
   gradients: true,
+  page: 2,
+  pages: 240,
   next: true,
   when: {
-    turned: function(e, page) {
+    turned: function(e, view) {
+
       console.log("Current view: ", $(this).turn("view"));
-    }
+
+    },
+
   }
 };
 
@@ -109,27 +110,29 @@ for(var i = 1; i < 240; i++){
 
 
 
+
+
 const App = () => {
-  
+  const Wrapper = ({ children }) => children;
   return (
-
-    
-
-      <div>
+    <Wrapper>
+      <Buttons />
       <Turn options={options} className="magazine">
+
         {pages.map((page, index) => (
           <div key={index} className="page">
-            <img src={page} alt={"Book of Free See Inside Page:" + index} />
+            <img src={page} alt="Book of Free See Inside" />
           </div>
         ))}
-      </Turn>,
-      <div>
-      <img className="prev navigation"src={Icon} onClick={prev} alt="Previous Page"/>
-          <img className="next navigation" src={Icon} onClick={next} alt="Next Page"/>
-      </div>
-      </div>
+      </Turn>
+    </Wrapper>
+    
+    
+
+      
   );
 };
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+
+ReactDOM.render(<App />,rootElement);
