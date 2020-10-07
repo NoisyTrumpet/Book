@@ -25,8 +25,8 @@ window.addEventListener('resize', function(e) {
 });
 
 function resize() {
-    $('.magazine').width = '762';
-    $('.magazine').height = '431';
+    $('.magazine').width = '387';
+    $('.magazine').height = '612';
 
     var width = document.body.clientWidth;
     var height = Math.round(width / ratio);

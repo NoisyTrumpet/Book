@@ -79,15 +79,15 @@ class Turn extends Component {
 
 
 const options = {
-  width: 1524,
-  height: 431,
+  width: 387,
+  height: 612,
   autoCenter: true,
   display: "double",
   acceleration: true,
   elevation: 50,
   gradients: true,
   page: 2,
-  pages: 240,
+  pages: 197,
   next: true,
   when: {
     turned: function(e, view) {
@@ -99,12 +99,12 @@ const options = {
   }
 };
 
-const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages/";
+const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages2020/%20";
 
 // eslint-disable-next-line
 const pages = new Array;
 
-for(var i = 1; i < 240; i++){
+for(var i = 1; i < 199; i++){
   pages.push( url + i + ".jpg");
 }
 
