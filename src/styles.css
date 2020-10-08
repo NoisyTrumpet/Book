@@ -8,7 +8,7 @@
   user-select: none;
 }
 
-@media (min-width: 800px) and (max-width: 1800px) {
+@media (min-width: 1040px) and (max-width: 1800px) {
   .magazine {
     position: relative;
     width: 100vw !important;
@@ -17,6 +17,14 @@
 
  .page {
     overflow: inherit !important;
+  }
+
+  .even {
+    left: 5px !important;
+  }
+
+  .odd {
+    right: 5px !important;
   }
 
    /* .page.even {

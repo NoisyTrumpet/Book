@@ -104,7 +104,7 @@ const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/page
 // eslint-disable-next-line
 const pages = new Array;
 
-for(var i = 1; i < 199; i++){
+for(var i = 1; i < 197; i++){
   pages.push( url + i + ".jpg");
 }
 
