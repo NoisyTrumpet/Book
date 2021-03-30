@@ -43,9 +43,6 @@ function resize() {
         $('.page img').css('height', 'auto');
     }
 
-
-    console.log(singleHeight)
-
     // if the height is too big for the window, constrain it
     if (height > padded) {
         height = padded;

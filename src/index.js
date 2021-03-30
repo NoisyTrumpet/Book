@@ -5,29 +5,23 @@ import Buttons from "./Buttons"
 import "turn.js";
 import "./resize.js"
 import "./styles.css";
-
 class Turn extends Component {
-  
   static defaultProps = {
     style: {},
     className: "",
     options: {},
   };
-  
 
   componentDidMount() {
     if (this.el) {
       $(this.el).turn(Object.assign({}, this.props.options));
     }
     document.addEventListener("keydown", this.handleKeyDown, false);
-
-
   }
-
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       context: props.context,
       clicked: true
@@ -35,9 +29,6 @@ class Turn extends Component {
 
     // this.onBtnClick = this.onBtnClick.bind(this);
   }
-
-
-  
 
   componentWillUnmount() {
     if (this.el) {
@@ -58,11 +49,11 @@ class Turn extends Component {
   };
 
   render() {
-    
+
     return (
 
 
-        
+
         <div
           className={this.props.className}
           style={Object.assign({}, this.props.style)}
@@ -70,9 +61,9 @@ class Turn extends Component {
         >
           {this.props.children}
         </div>
-        
 
-      
+
+
     );
   }
 }
@@ -88,23 +79,15 @@ const options = {
   gradients: true,
   page: 2,
   pages: 240,
-  next: true,
-  when: {
-    turned: function(e, view) {
-
-      console.log("Current view: ", $(this).turn("view"));
-
-    },
-
-  }
+  next: true
 };
 
-const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages/";
+const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages2021/";
 
 // eslint-disable-next-line
 const pages = new Array;
 
-for(var i = 1; i < 240; i++){
+for(var i = 1; i < 192; i++){
   pages.push( url + i + ".jpg");
 }
 
@@ -126,10 +109,10 @@ const App = () => {
         ))}
       </Turn>
     </Wrapper>
-    
-    
 
-      
+
+
+
   );
 };
 
