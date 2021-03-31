@@ -11,8 +11,8 @@ document.body.addEventListener('touchmove', function(e) {
 
 
 
-var ratio = 3.53;
-var singleRatio = 1.77;
+var ratio = 1.26;
+var singleRatio = .63;
 
 window.addEventListener('load', function(e) {
     var size = resize();
@@ -25,8 +25,8 @@ window.addEventListener('resize', function(e) {
 });
 
 function resize() {
-    $('.magazine').width = '762';
-    $('.magazine').height = '431';
+    $('.magazine').width = '387';
+    $('.magazine').height = '612';
 
     var width = document.body.clientWidth;
     var height = Math.round(width / ratio);
@@ -47,7 +47,7 @@ function resize() {
     if (height > padded) {
         height = padded;
         width = Math.round(height * ratio);
-        $('magazine').css('margin-top', '22.25% auto');
+        $('magazine').css('margin-top', '2.25% auto');
     }
 
 

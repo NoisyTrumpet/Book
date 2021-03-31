@@ -1,16 +1,23 @@
 .magazine {
-  margin: 22.25% auto !important;
+  margin: 2.25% auto !important;
   user-select: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 762px) {
   .magazine {
-    margin: 60% auto !important;
+    margin: 16% auto !important;
   }
 }
 
+/* @media (max-width: 500px) {
+  .magazine {
+    margin: 23% auto !important;
+  }
+} */
+
 .magazine .page {
   height: 100%;
+  /* text-align: center; */
 }
 
 
