@@ -70,24 +70,24 @@ class Turn extends Component {
 
 
 const options = {
-  width: 1524,
-  height: 431,
+  width: 1688,
+  height: 825,
   autoCenter: true,
-  display: "double",
+  display: "single",
   acceleration: true,
   elevation: 50,
   gradients: true,
-  page: 2,
-  pages: 240,
+  page: 1,
+  pages: 30,
   next: true
 };
 
-const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages2021/";
+const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pagesDFW2021/";
 
 // eslint-disable-next-line
 const pages = new Array;
 
-for(var i = 1; i < 192; i++){
+for(var i = 1; i < 30; i++){
   pages.push( url + i + ".jpg");
 }
 
@@ -95,27 +95,24 @@ for(var i = 1; i < 192; i++){
 
 
 
-const App = () => {
-  const Wrapper = ({ children }) => children;
-  return (
-    <Wrapper>
-      <Buttons />
-      <Turn options={options} className="magazine">
 
+
+const App = () => {
+  return (
+    <div id="new-root">
+      <Buttons />
+      <Turn options={options} className="magazine-2">
         {pages.map((page, index) => (
           <div key={index} className="page">
             <img src={page} alt="Book of Free See Inside" />
           </div>
         ))}
       </Turn>
-    </Wrapper>
-
-
-
-
+      </div>
   );
 };
 
-const rootElement = document.getElementById("root");
+
+const rootElement = document.getElementById("new-root");
 
 ReactDOM.render(<App />,rootElement);

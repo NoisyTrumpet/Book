@@ -9,8 +9,8 @@ const Buttons = () => {
 
     return (
         <div className="pageControls">
-            <img className="prev navigation previous-button" src={Icon} onClick={() => $('.magazine').turn('previous')} alt="Previous Page" />
-            <img className="next navigation" src={Icon} onClick={() => $('.magazine').turn('next')} alt="Next Page" />
+            <img className="prev navigation previous-button" src={Icon} onClick={() => $('.magazine-2').turn('previous')} alt="Previous Page" />
+            <img className="next navigation" src={Icon} onClick={() => $('.magazine-2').turn('next')} alt="Next Page" />
         </div>
     )
 }

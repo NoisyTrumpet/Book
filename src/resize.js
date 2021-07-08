@@ -11,22 +11,22 @@ document.body.addEventListener('touchmove', function(e) {
 
 
 
-var ratio = 1.26;
-var singleRatio = .63;
+var ratio = 2.04606061;
+var singleRatio = 1.0230303;
 
 window.addEventListener('load', function(e) {
     var size = resize();
-    $('.magazine').turn('size', size.width, size.height);
+    $('.magazine-2').turn('size', size.width, size.height);
 });
 
 window.addEventListener('resize', function(e) {
     var size = resize();
-    $('.magazine').turn('size', size.width, size.height);
+    $('.magazine-2').turn('size', size.width, size.height);
 });
 
 function resize() {
-    $('.magazine').width = '387';
-    $('.magazine').height = '612';
+    $('.magazine-2').width = '1688';
+    $('.magazine-2').height = '825';
 
     var width = document.body.clientWidth;
     var height = Math.round(width / ratio);
@@ -36,19 +36,19 @@ function resize() {
 
 
 
-    if (width <= 762) {
+    // if (width <= 762) {
 
-        $('.magazine').turn('display', 'single');
-        height = singleHeight;
-        $('.page img').css('height', 'auto');
-    }
+    //     // $('.magazine-2').turn('display', 'single');
+    //     height = singleHeight;
+    //     $('.page img').css('height', 'auto');
+    // }
 
     // if the height is too big for the window, constrain it
-    if (height > padded) {
-        height = padded;
-        width = Math.round(height * ratio);
-        $('magazine').css('margin-top', '2.25% auto');
-    }
+    // if (height > padded) {
+    //     height = padded;
+    //     width = Math.round(height * ratio);
+    //     $('magazine-2').css('margin-top', '2.25% auto');
+    // }
 
 
 

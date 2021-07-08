@@ -5,23 +5,30 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@craco/craco": "^6.2.0",
+    "customize-cra": "^1.0.0",
     "jquery": "1.12.0",
     "react": "16.6.3",
+    "react-app-rewired": "^2.1.8",
     "react-dom": "16.6.3",
     "react-flip-page": "^1.6.0",
     "react-keydown": "^1.9.12",
     "react-responsive": "^8.0.3",
-    "react-scripts": "2.0.3",
+    "react-scripts": "^4.0.3",
+    "replace": "^1.2.1",
     "turn.js": "https://github.com/rizalibnu/turn.js.git"
   },
   "devDependencies": {
-    "file-loader": "^6.0.0"
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.0-alpha.2",
+    "path": "^0.12.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "webpack": "webpack",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
+    "eject": "craco eject"
   },
   "browserslist": [
     ">0.2%",
