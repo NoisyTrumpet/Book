@@ -1,121 +1,66 @@
-import $ from "jquery";
-import React, {Component} from "react";
-import ReactDOM from "react-dom";
-import Buttons from "./Buttons"
-import "turn.js";
-import "./resize.js"
+import React, { Component, useRef } from "react";
+import { createRoot } from "react-dom/client";
+import Buttons from "./Buttons";
 import "./styles.css";
-class Turn extends Component {
-  static defaultProps = {
-    style: {},
-    className: "",
-    options: {},
-  };
 
-  componentDidMount() {
-    if (this.el) {
-      $(this.el).turn(Object.assign({}, this.props.options));
-    }
-    document.addEventListener("keydown", this.handleKeyDown, false);
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      context: props.context,
-      clicked: true
-    };
-
-    // this.onBtnClick = this.onBtnClick.bind(this);
-  }
-
-  componentWillUnmount() {
-    if (this.el) {
-      $(this.el)
-        .turn("destroy")
-        .remove();
-    }
-    document.removeEventListener("keydown", this.handleKeyDown, false);
-  }
-
- handleKeyDown = event => {
-    if (event.keyCode === 37) {
-      $(this.el).turn("previous");
-    }
-    if (event.keyCode === 39) {
-      $(this.el).turn("next");
-    }
-  };
-
-  render() {
-
-    return (
+import HTMLFlipBook from "react-pageflip";
 
 
-
-        <div
-          className={this.props.className}
-          style={Object.assign({}, this.props.style)}
-          ref={el => (this.el = el)}
-        >
-          {this.props.children}
-        </div>
-
-
-
-    );
-  }
-}
-
-
-const options = {
-  width: 1524,
-  height: 431,
-  autoCenter: true,
-  display: "double",
-  acceleration: true,
-  elevation: 50,
-  gradients: true,
-  page: 2,
-  pages: 240,
-  next: true
-};
-
-const url = "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages2021/";
+const url =
+  "https://bookoffree.com/wp-content/themes/dt-the7-child/turn-js/pages916/";
 
 // eslint-disable-next-line
-const pages = new Array;
 
-for(var i = 1; i < 192; i++){
-  pages.push( url + i + ".jpg");
-}
-
-
-
-
+const Page = React.forwardRef((props, ref) => {
+  return (
+    <div className="demoPage" ref={ref}>
+      <div key={props.index} className="page">
+        <img
+          src={props.page}
+          alt={`Book of Free See Inside Page: ${props.page}`}
+        />
+      </div>
+    </div>
+  );
+});
 
 const App = () => {
-  const Wrapper = ({ children }) => children;
+  const pages = new Array();
+
+  for (var i = 1; i < 193; i++) {
+    pages.push(url + i + ".jpg");
+  }
+  const book = useRef();
+
+  const handleNextPage = () => {
+    book.current.pageFlip().flipNext();
+  };
+
+  const handlePrevPage = () => {
+    book.current.pageFlip().flipPrev();
+  };
+
   return (
-    <Wrapper>
-      <Buttons />
-      <Turn options={options} className="magazine">
-
+    <div className="wrapper">
+      <Buttons
+        turnToNextPage={handleNextPage}
+        turnToPrevPage={handlePrevPage}
+      />
+      <HTMLFlipBook
+        width={675}
+        height={1050}
+        maxWidth={`100vw`}
+        minWidth={`none`}
+        ref={book}
+      >
         {pages.map((page, index) => (
-          <div key={index} className="page">
-            <img src={page} alt="Book of Free See Inside" />
-          </div>
+          <Page key={index} index={index} page={page} />
         ))}
-      </Turn>
-    </Wrapper>
-
-
-
-
+      </HTMLFlipBook>
+    </div>
   );
 };
 
-const rootElement = document.getElementById("root");
-
-ReactDOM.render(<App />,rootElement);
+const container = document.getElementById("root");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<App tab="home" />);

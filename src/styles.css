@@ -20,7 +20,6 @@
   /* text-align: center; */
 }
 
-
 .magazine .page img {
   max-width: 100%;
   height: 100%;
@@ -59,7 +58,7 @@ body.hide-overflow {
 }
 
 img.navigation {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   position: fixed;
   z-index: 999999999999;
   top: 50%;
@@ -67,7 +66,6 @@ img.navigation {
   background: "./SVG/circle.svg";
   width: 50px;
   background: #fff;
-
 }
 
 img.navigation:hover {
@@ -76,10 +74,21 @@ img.navigation:hover {
 
 img.next {
   right: 2%;
-
 }
 
 img.prev {
   left: 2%;
   transform: rotate(180deg);
+}
+
+.stf__parent {
+  display: grid!important;
+  place-items: center!important;
+}
+
+
+@media screen and (max-width: 1050px) {
+  .stf__wrapper {
+    width: 100%!important;
+  }
 }
